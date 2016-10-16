@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using OrangeBricks.Web.Models;
+using System.Linq;
 
 namespace OrangeBricks.Web.Controllers.Property.Commands
 {
@@ -22,7 +23,9 @@ namespace OrangeBricks.Web.Controllers.Property.Commands
                 Amount = command.Offer,
                 Status = OfferStatus.Pending,
                 CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                UpdatedAt = DateTime.Now,
+                Property = property,
+                BuyerId = command.BuyerId
             };
 
             if (property.Offers == null)

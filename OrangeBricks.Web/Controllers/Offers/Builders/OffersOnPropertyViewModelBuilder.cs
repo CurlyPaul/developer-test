@@ -27,7 +27,7 @@ namespace OrangeBricks.Web.Controllers.Offers.Builders
             return new OffersOnPropertyViewModel
             {
                 HasOffers = offers.Any(),
-                Offers = offers.Select(x => new OfferViewModel
+                Offers = offers.Select(x => new SellersOfferViewModel
                 {
                     Id = x.Id,
                     Amount = x.Amount,
