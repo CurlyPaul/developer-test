@@ -235,6 +235,10 @@
     <Compile Include="Migrations\201610170013086_AddViewingTable.Designer.cs">
       <DependentUpon>201610170013086_AddViewingTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610170023104_AddFieldsToViewingTable.cs" />
+    <Compile Include="Migrations\201610170023104_AddFieldsToViewingTable.Designer.cs">
+      <DependentUpon>201610170023104_AddFieldsToViewingTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -335,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610170013086_AddViewingTable.resx">
       <DependentUpon>201610170013086_AddViewingTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610170023104_AddFieldsToViewingTable.resx">
+      <DependentUpon>201610170023104_AddFieldsToViewingTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -4,6 +4,7 @@ using NUnit.Framework;
 using OrangeBricks.Web.Controllers.Property.Commands;
 using OrangeBricks.Web.Models;
 using OrangeBricks.Web.Controllers.Viewings.Commands;
+using System;
 
 namespace OrangeBricks.Web.Tests.Controllers.Property.Commands
 {
@@ -36,21 +37,58 @@ namespace OrangeBricks.Web.Tests.Controllers.Property.Commands
         }
 
         [Test]
-        public void HandlerCreatesViewingForCorrectProperty()
+        public void HandlerCreatesViewingForCorrectBuyer()
         {
-            Assert.Fail();
+            // Arrange
+            var command = new CreateViewingCommand
+            {
+                BuyerId = "TestBuyer"
+            };
+
+            // Act
+            _handler.Handle(command);
+
+            // Assert
+            _context.Viewings.Received(1).Add(Arg.Is<Models.Viewing>(x => x.BuyerId == "TestBuyer"));
         }
 
         [Test]
-        public void HandlerCreatesViewingForCorrectBuyer()
+        public void HandlerCreatesViewingForCorrectProperty()
         {
-            Assert.Fail();
+            // Arrange
+            var command = new CreateViewingCommand
+            {
+                BuyerId = "TestBuyer",
+                PropertyId = 1,
+            };
+
+            // Act
+            _handler.Handle(command);
+
+            // Assert
+            _context.Viewings.Received(1).Add(Arg.Is<Models.Viewing>(x => x.PropertyId == 1));
         }
+
+
 
         [Test]
         public void HanderCreatesViewingAtCorrectTime()
         {
-            Assert.Fail();
+            // Arrange
+            DateTime viewingTime = DateTime.Now;
+
+            var command = new CreateViewingCommand
+            {
+                BuyerId = "TestBuyer",
+                PropertyId = 1,
+                ViewingAt = viewingTime
+            };
+
+            // Act
+            _handler.Handle(command);
+
+            // Assert
+            _context.Viewings.Received(1).Add(Arg.Is<Models.Viewing>(x => x.ViewingAt == viewingTime));
         }
     }
 }

@@ -12,5 +12,9 @@ namespace OrangeBricks.Web.Models
         public int Id { get; set; }
 
         public string BuyerId { get; set; }
+
+        public int PropertyId { get; set; }
+
+        public DateTime ViewingAt { get; set; }
     }
 }
