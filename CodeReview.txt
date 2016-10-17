@@ -1,0 +1,18 @@
+OrangeBricks web site code review
+=================================
+
+The code demonstrates good SOC and SRP, and use of recognisable patterns such as Builders and Arrange/Act/Assert. 
+
+The code uses dependency injection to allow for easy creation unit tests, using a Mocking framework to provide implementations of dependent objects.
+
+Suggested Improvements
+======================
+The Properties controller also contains methods that are related to creating Offers. Semantically, this should be handled by the Offers controller I feel.
+
+There are numerous methods that accept a parameter called "Id". To prevent confusion we should give these a more specific name, such as "propertyId".
+
+Several of the cshtml files could benefit from using Display/Editor templates. For example MyProperites uses a foreach loop to generate the HTML of each property, a Display template could remove the foreach, separate the code into another file to help readability, and provide a way to reuse the view in other parts of the application.
+
+The unit tests do not completely cover all areas and could be expanded to test more cases in the areas that they do cover.
+
+Consider introducing a tool such as Automapper, which will map identically named properties inbewteen the database models, view models and command models without having to manually type them all out.
