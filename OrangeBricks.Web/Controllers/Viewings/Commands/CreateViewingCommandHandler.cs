@@ -17,7 +17,14 @@ namespace OrangeBricks.Web.Controllers.Viewings.Commands
 
         public void Handle(CreateViewingCommand commmand)
         {
+            var viewing = new Models.Viewing
+            {
+               
+            };
 
+            _context.Viewings.Add(viewing);
+
+            _context.SaveChanges();
         }
     }
 }
