@@ -9,7 +9,7 @@
 
 <p>How much would you like to view the @Model.PropertyType on @Model.StreetName?</p>
 
-@using (Html.BeginForm("BookViewing", "Property", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("BookViewing", "Viewings", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.ViewingAt,new { @class = "col-md-2 control-label" })
@@ -27,7 +27,6 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-
-        jQuery('#ViewingAt').datepicker();
+        $('#ViewingAt').datepicker();
     });
 </script>

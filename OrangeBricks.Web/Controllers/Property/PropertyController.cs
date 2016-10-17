@@ -94,12 +94,7 @@ namespace OrangeBricks.Web.Controllers.Property
             return RedirectToAction("Index");
         }
 
-        [OrangeBricksAuthorize]
-        public ActionResult BookViewing(int propertyId)
-        {
-            var builder = new BookViewingViewModelBuilder(_context);
-            var viewModel = builder.Build(propertyId);
-            return View(viewModel);
-        }
+
+
     }
 }
