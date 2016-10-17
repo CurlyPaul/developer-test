@@ -20,6 +20,8 @@ namespace OrangeBricks.Web.Controllers.Viewings.Commands
             var viewing = new Models.Viewing
             {
                BuyerId = commmand.BuyerId,
+               PropertyId = commmand.PropertyId,
+               ViewingAt = commmand.ViewingAt,
             };
 
             _context.Viewings.Add(viewing);

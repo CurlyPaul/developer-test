@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using OrangeBricks.Web.Controllers.Viewings.Builders;
 
 namespace OrangeBricks.Web.Controllers.Viewings
 {
@@ -38,7 +39,17 @@ namespace OrangeBricks.Web.Controllers.Viewings
 
             handler.Handle(command);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Property");
+        }
+
+        [OrangeBricksAuthorize(Roles = "Seller")]
+        public ActionResult OnProperty(int Id)
+        {
+            var builder = new ViewingsOnPropertyViewModelBuilder(_context);
+            var viewModel = builder.Build(Id);
+
+            return View(viewModel);
+
         }
     }
 }
