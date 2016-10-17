@@ -3,6 +3,7 @@ using NSubstitute;
 using NUnit.Framework;
 using OrangeBricks.Web.Controllers.Property.Commands;
 using OrangeBricks.Web.Models;
+using OrangeBricks.Web.Controllers.Viewings.Commands;
 
 namespace OrangeBricks.Web.Tests.Controllers.Property.Commands
 {
@@ -24,7 +25,14 @@ namespace OrangeBricks.Web.Tests.Controllers.Property.Commands
         [Test]
         public void HandlerShouldCreateViewing()
         {
-            Assert.Fail();
+            // Arrange
+            var command = new CreateViewingCommand();
+
+            // Act
+            _handler.Handle(command);
+
+            // Assert
+            _context.Viewings.Received(1).Add(Arg.Any<Models.Viewing>());
         }
 
         [Test]
